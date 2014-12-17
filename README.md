@@ -1,3 +1,8 @@
+## What is TextPad?
+
+Textpad is a tiny extension for the chrome browser that acts as a todo list or general note taking app whenever you open a new tab
+in chrome.
+
 How to install
 =======
 
