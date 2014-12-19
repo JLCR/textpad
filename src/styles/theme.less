@@ -2,7 +2,7 @@
 /* STYLES */
 body {
   font-family: 'robotoregular', Helvetica, Arial, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1em;
   line-height: 1.4;
   background-color: @offWhite;
   color: @textGrey;
@@ -16,7 +16,8 @@ body {
 }
 
 .sidebar {
-  width: 250px;
+  width: 249px;
+  border-right: 1px solid @lightActive;
   height: 100%;
   position: fixed;
   margin-left: -250px;
@@ -29,7 +30,14 @@ body {
     padding: 0;
   }
 }
-.pageListElement { padding: 10px; }
+.pageListElement {
+  padding: 4px 10px;
+  cursor: pointer;
+}
+.pageListElement--active {
+  background: @lightActive;
+  color: @textDarkBlue;
+}
 .pageListElement--title   {  float: left; }
 .pageListElement--delete  {  float: right; }
 

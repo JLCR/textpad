@@ -10,9 +10,19 @@ var _pages = null;
 var _currentPage = null;
 
 var initStorage = function initStorage() {
-  lsp = _localStorage.getItem("_pages");
+  var lsp = _localStorage.getItem("_pages"),
+      page = null;
+
   _pages = JSON.parse(lsp);
   _pages = (_pages || {});
+
+  for( var k in _pages ) {
+    page = _pages[k];
+    if ( page.active ) {
+      _currentPage = page;
+      break;
+    }
+  }
 }
 
 initStorage();
@@ -30,11 +40,15 @@ function Page(id, title, text, tags) {
   this.title = title;
   this.text  = text || "";
   this.tags  = tags || [];
+  this.active = false;
 };
 
 function create(title) {
   var id = getId();
+  if ( _currentPage ) _pages[_currentPage.id].active = false;
+
   var page = new Page(id, title, "");
+  page.active = true
   _currentPage = _pages[id] = page;
   updateStorage();
 }
@@ -64,7 +78,11 @@ function save(id, text) {
 }
 
 function show(id) {
+  if ( _currentPage ) _pages[_currentPage.id].active = false;
+
   var page = _pages[id]
+  page.active = true;
+
   _currentPage = page;
 }
 

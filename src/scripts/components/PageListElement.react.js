@@ -1,4 +1,4 @@
-var React = require("react");
+var React = require("react/addons");
 var ReactPropTypes = React.PropTypes;
 var PageActions = require("../actions/PageActions");
 
@@ -9,8 +9,15 @@ var PageListElement = React.createClass({
   },
 
   render: function() {
+    var cx = React.addons.classSet;
+
+    var classes = cx({
+      'pageListElement' : true,
+      'pageListElement--active' : this.props.page.active
+    })
+
     return (
-      <li className="pageListElement">
+      <li className={classes}>
       <div className="pageListElement--title" onClick={this._onShow}>
         {this.props.page.title}
       </div>
