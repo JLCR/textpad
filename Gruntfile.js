@@ -27,20 +27,38 @@ module.exports = function(grunt) {
     // CSS
     less: {
       build_styles: {
+        options: {
+          compress: true,
+          optimization: 0,
+          ieCompat: false
+        },
         files: {
           "build/index.css" : "src/styles/main.less"
         }
       }
     },
 
+
+    // AMD Resolution
+    browserify: {
+      build: {
+        options: {
+          transform: ["reactify"]
+        },
+        files: {
+          "build/index.js": "src/scripts/index.js"
+        }
+      }
+    },
+
     // SCRIPTS
     uglify: {
-      build_frontend_scripts: {
+      build: {
         options: {
           mangle: true
         },
         files: {
-          "build/index.js" : ["src/scripts/**/*.js"]
+          "build/index.js" : ["build/index.js"]
         }
       }
     },
@@ -69,6 +87,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-browserify');
 
   // REGISTER TASKS
   grunt.registerTask('build', [
@@ -76,7 +95,8 @@ module.exports = function(grunt) {
     "copy:build_fonts",
     "copy:build_icons",
     "less:build_styles",
-    "uglify:build_frontend_scripts",
+    "browserify:build",
+    //"uglify:build",
     "htmlmin:build_index"
   ]);
   grunt.registerTask('default', []);
