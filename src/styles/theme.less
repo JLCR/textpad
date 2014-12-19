@@ -30,6 +30,20 @@ body {
     padding: 0;
   }
 }
+.sidebarHeader {
+  padding: 10px;
+  font-weight: bold;
+}
+
+#newPageInput:focus { outline: 0; }
+#newPageInput {
+  width: 218px;
+  padding: 0 0 0 10px;
+  margin: 0 0 0 10px;
+  border-radius: 12px;
+  border: 1px solid #d3d3d3;
+}
+
 .pageListElement {
   padding: 4px 10px;
   cursor: pointer;
@@ -38,16 +52,38 @@ body {
   background: @lightActive;
   color: @textDarkBlue;
 }
-.pageListElement--title   {  float: left; }
-.pageListElement--delete  {  float: right; }
+.pageListElement--title   {
+  width: 210px;
+  float: left;
+}
+.pageListElement--delete  {
+  float: right;
+  text-align: center;
+  display: table-cell;
+}
+.pageListeElement--deleteButton {
+  font-size: 8px;
+  color: white;
+  background: @grey;
+  border-radius: 50%;
+  padding: 4px;
+  vertical-align: middle;
+}
+.pageElement--actions-clear {
+  cursor: pointer;
+}
 
 .header {
   height: 26px;
-  background: @nightBlack;
+  background: rgba(248,248,248,1);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(248,248,248,1)), color-stop(0%, rgba(248,248,248,1)), color-stop(100%, rgba(220,220,220,1)));
+  background: -webkit-linear-gradient(top, rgba(248,248,248,1) 0%, rgba(248,248,248,1) 0%, rgba(220,220,220,1) 100%);
+  background: linear-gradient(to bottom, rgba(248,248,248,1) 0%, rgba(248,248,248,1) 0%, rgba(220,220,220,1) 100%);
+  border-bottom: 1px solid @darkGrey;
 }
 
 .pageElement--body {
-  margin: 20px;
+  margin: 10px;
   padding: 10px;
   background: white;
   border: 1px solid @lightGrey;
@@ -62,10 +98,12 @@ body {
 }
 
 .pageElement--header {
-  padding: 10px 20px 0px 20px;
+  padding: 10px 10px 0px 10px;
 }
+
+.pageElement--meta { float: right; }
 
 .pageElement--actions {
   display: inline-block;
-  float: right;
+  float: left;
 }

@@ -18,11 +18,24 @@ var PageElement = React.createClass({
       return (
         <div className="pageElement">
           <div className="pageElement--header">
-            <span>{page.title}</span>
-            <span>({page.id})</span>
             <div className="pageElement--actions">
-              <button id="pageElement--actions-clear" onClick={this._onClear}>clear</button>
+              <span
+                className="oi pageElement--actions-clear"
+                title="clear page"
+                data-glyph="media-stop"
+                onClick={this._onClear}>
+              </span>
+              <span
+                className="oi pageElement--actions-tags"
+                title="add tag"
+                data-glyph="tags"
+                onClick={this._onNewTag}>
+              </span>
             </div>
+            <div className="pageElement--meta">
+              <span className="oi" data-glyph="info" title="page info"></span>
+            </div>
+            <div className="clearfix"></div>
           </div>
           <div className="pageElement--body">
             <ContentEditable id="pageElement--content" html={page.text} onChange={this._onSave} />

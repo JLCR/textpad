@@ -29,7 +29,7 @@ var Sidebar = React.createClass({
 
     return (
       <div className="sidebar">
-        <div className="sidebarHeader">pages</div>
+        <div className="sidebarHeader">Pages</div>
         <div className="sidebarContent">
           <input
             id="newPageInput"
@@ -37,10 +37,13 @@ var Sidebar = React.createClass({
             value={this.state.currentTitle}
             onChange={this._handleChange}
           />
-          <button
-            id="newPageButton"
+          <span
+            className="oi"
+            data-glyph="plus"
+            title="create new page"
             onClick={this._onNewPage}
-          >+</button>
+          >
+          </span>
           <ul>{pages}</ul>
         </div>
       </div>

@@ -22,7 +22,9 @@ var PageListElement = React.createClass({
         {this.props.page.title}
       </div>
       <div className="pageListElement--delete">
-        <button onClick={this._onDeletePage}>delete</button>
+        <a onClick={this._onDeletePage} className="pageListeElement--deleteButton">
+          <span className="oi" data-glyph="x" title="delete page"></span>
+        </a>
       </div>
       <div className="clearfix"></div>
       </li>
